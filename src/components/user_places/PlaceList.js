@@ -3,14 +3,15 @@ import React from'react';
 import Card from '../common/Card';
 import './place_list.css';
 import PlaceItem from './PlaceItem';
+import Button from '../common/form_elements/Button'
 
 const PlaceList= ({ items }) => {
   if (items.length === 0) {
     return (
       <div className='place-list center'>
-        <Card>
+        <Card style={{padding: "8px"}}>
           <h2> No Places found. Maybe create one ?</h2>
-          <butto>Share Place</butto>
+          <Button to='/places/new'>Share Place</Button>
         </Card>
       </div>
     );
