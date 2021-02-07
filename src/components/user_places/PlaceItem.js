@@ -1,16 +1,18 @@
-import React, { useState } from'react';
+import React, { useState , Fragment, useContext } from'react';
 
 import Card from '../common/Card';
 import Button from '../common/form_elements/Button';
 import Modal from '../common/Modal';
 import Map from '../common/Map';
+import { AuthContext } from '../common/utils/context/AuthContext';
 import './place_item.css';
-import { Fragment } from 'react';
 
 const PlaceItem = ({ id, image, title, address, description, creatorId, coordinates }) => {
 
   const [ showMap, setShowMap ] = useState(false);
   const [ showDeleteConfirm, setDeleteConfirm ] = useState(false);
+  const auth = useContext(AuthContext);
+
   const openMapHandler = () => setShowMap(true);
   const closeMapHandler = () => setShowMap(false);
 
@@ -61,8 +63,8 @@ const PlaceItem = ({ id, image, title, address, description, creatorId, coordina
           </div>
           <div className='place-item__actions'>
             <Button inverse onClick={openMapHandler}>View on map</Button>
-            <Button to={`/places/${id}`}>Edit</Button>
-            <Button danger onClick={() => setDeleteConfirm(true)}>Delete</Button>
+            { auth.isLogin && <Button to={`/places/${id}`}>Edit</Button>}
+            { auth.isLogin && <Button danger onClick={() => setDeleteConfirm(true)}>Delete</Button>}
           </div>
         </Card>
       </li>

@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import Card from '../common/Card';
 import Button from '../common/form_elements/Button';
 import Input from '../common/form_elements/Input';
 import { useForm } from '../common/utils/hooks/form-hook';
 import { VALIDATOR_EMAIL, VALIDATOR_MIN, VALIDATOR_REQUIRE } from '../common/utils/validators';
+import { AuthContext } from '../common/utils/context/AuthContext';
 import './auth.css';
 
 const Auth = props => {
   const [ formState, inputHandler, setFormStateValue ] = useForm();
   const [ showLoginForm, setShowLoginForm ] = useState(true);
+  const auth = useContext(AuthContext);
 
   const handleAuthentication = event => {
     event.preventDefault();
     console.log("formState ======= ", formState);
+    auth.login();
   };
 
   const changeFormState = () => {
