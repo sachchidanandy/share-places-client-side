@@ -1,9 +1,9 @@
 import React from'react';
 
 import Card from '../common/Card';
-import './place_list.css';
 import PlaceItem from './PlaceItem';
 import Button from '../common/form_elements/Button'
+import './place_list.css';
 
 const PlaceList= ({ items }) => {
   if (items.length === 0) {

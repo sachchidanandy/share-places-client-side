@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './user_item.css';
 import Avatar from '../common/Avatar';
 import Card from'../common/Card';
+import './user_item.css';
 
 export default ({ id, image, name, placeCount }) => {
   return (
