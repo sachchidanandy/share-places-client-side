@@ -6,6 +6,7 @@ import NewPlace from './components/new_places/NewPlace';
 import EditPlace from './components/new_places/EditPlace';
 import MainNavigation from './components/common/navigation/MainNavigation';
 import UserPlaces from './components/user_places/UserPlaces';
+import Auth from './components/auth/Auth';
 import './App.css';
 
 export default () => {
@@ -18,6 +19,7 @@ export default () => {
           <Route path='/:userId/places' exact component={UserPlaces}/>
           <Route exact path='/places/new' component={NewPlace}/>
           <Route exact path='/places/:placeId' component={EditPlace}/>
+          <Route path='/auth' component={Auth}/>
           <Redirect to='/'/>
         </Switch>
       </main>

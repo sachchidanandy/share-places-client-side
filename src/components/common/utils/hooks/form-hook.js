@@ -21,6 +21,13 @@ const formReducer = (state, action) => {
         },
         isValid: formValidation 
       };
+    case 'RESET_FORM_STATUS':
+      return {
+        inputs: action.payload.initialFormInputs ? {
+          ...action.payload.initialFormInputs
+        } : { ...state.inputs},
+        isValid: action.payload.initialFormStatus
+      }
     default:
       return state;
   }
@@ -39,5 +46,12 @@ export const useForm = (initialFormInputs, initialFormStatus) => {
     });
   }, []);
 
-  return [formState, inputHandler];
+  const setFormStateValue = useCallback((initialFormInputs, initialFormStatus) => {
+    dispatch({
+      type: 'RESET_FORM_STATUS',
+      payload: {initialFormInputs, initialFormStatus }
+    });
+  }, []);
+
+  return [formState, inputHandler, setFormStateValue];
 }

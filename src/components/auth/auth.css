@@ -1,0 +1,21 @@
+.authentication__header {
+    color: white;
+    text-align: center;
+}
+
+.authentication {
+    width: 90%;
+    max-width: 30rem;
+    margin: 7rem auto;
+    text-align: center;
+    padding: 8px 16px;
+}
+
+.authentication form {
+    margin-bottom: 1rem;
+}
+
+.authentication__switch {
+    cursor: pointer;
+    color: blue;
+}
